@@ -48,7 +48,7 @@ const BannerBottom = () => {
             <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-3 overflow-hidden rounded-full bg-white shadow flex items-center justify-center p-2">
               <img
                 // FIX: Prepend backend URL to the image path
-                src={cat.image ? `http://localhost:8080${cat.image}` : "https://via.placeholder.com/100"}
+                src={cat.image ? `https://backend-production-5823.up.railway.app/${cat.image}` : "https://via.placeholder.com/100"}
                 alt={cat.name}
                 className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
               />
