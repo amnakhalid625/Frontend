@@ -46,12 +46,12 @@ const BannerBottom = () => {
             className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-2 border border-gray-100 w-28 sm:w-32 md:w-36 lg:w-40"
           >
             <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-3 overflow-hidden rounded-full bg-white shadow flex items-center justify-center p-2">
-              <img
-                // FIX: Prepend backend URL to the image path
-                src={cat.image ? `https://backend-production-5823.up.railway.app/${cat.image}` : "https://via.placeholder.com/100"}
-                alt={cat.name}
-                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
-              />
+             // Line 47 mein change karein:
+<img
+  src={cat.image} // ✅ DIRECT CLOUDINARY URL - REMOVE BACKEND URL PREPEND
+  alt={cat.name}
+  className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
+/>
             </div>
             <h3 className="text-sm md:text-base font-semibold text-gray-800 tracking-wide">
               {cat.name}
