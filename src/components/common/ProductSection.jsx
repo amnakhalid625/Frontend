@@ -54,7 +54,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
   const handleAddToCart = async (product) => {
     try {
       // The image path in Redux needs the full URL to be displayed in the cart/header
-      const imageUrl = (product.images && product.images.length > 0) ? `https://backend-production-5823.up.railway.app/${product.images[0]}` : "https://via.placeholder.com/100";
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : "https://via.placeholder.com/100";
       await addToCart(product._id, 1, userInfo);
       dispatch(
         addToCartAction({
@@ -73,7 +73,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
 
   const handleToggleWishlist = async (product) => {
     try {
-      const imageUrl = (product.images && product.images.length > 0) ? `https://backend-production-5823.up.railway.app/${product.images[0]}` : "https://via.placeholder.com/100";
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : "https://via.placeholder.com/100";
       await toggleWishlist(product._id, userInfo);
       dispatch(
         toggleWishlistAction({
@@ -219,7 +219,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
             {infiniteProducts.map((product, index) => {
               const isWishlisted = wishlist.some((p) => p._id === product._id);
               const imageUrl = (product.images && product.images.length > 0)
-                ? `https://backend-production-5823.up.railway.app/${product.images[0]}`
+                ? `http://localhost:8080/${product.images[0]}`
                 : "https://via.placeholder.com/400?text=No+Image";
 
               return (

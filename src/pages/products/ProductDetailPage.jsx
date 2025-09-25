@@ -20,7 +20,7 @@ const ProductDetailPage = () => {
           const foundProduct = response.product;
 
           const formattedImages = (foundProduct.images || []).map(
-            (imgPath) => `https://backend-production-5823.up.railway.app/${imgPath}`
+            (imgPath) => `http://localhost:8080/${imgPath}`
           );
 
           const transformedProduct = {

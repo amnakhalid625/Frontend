@@ -12,8 +12,8 @@ const ProductCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted }) =
   // THIS IS THE FIX: Construct the full image URL by prepending the backend address.
   // This also handles both `images` array and single `image` string for flexibility.
   const imageUrl = (product.images && product.images.length > 0)
-    ? `https://backend-production-5823.up.railway.app/${product.images[0]}`
-    : (product.image ? `https://backend-production-5823.up.railway.app/${product.image}` : "https://via.placeholder.com/400?text=No+Image");
+    ? `http://localhost:8080/${product.images[0]}`
+    : (product.image ? `http://localhost:8080/${product.image}` : "https://via.placeholder.com/400?text=No+Image");
 
   return (
     <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group h-full flex flex-col">
