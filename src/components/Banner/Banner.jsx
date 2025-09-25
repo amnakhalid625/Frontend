@@ -81,7 +81,7 @@ const Banner = () => {
                 style={{ backgroundColor: banner.backgroundColor || '#f0f0f0' }}
               >
                 <img
-                  src={`https://backend-production-5823.up.railway.app/${banner.image}`}
+                  src={`/${banner.image}`}
                   alt={banner.title}
                   className="w-full h-56 md:h-72 lg:h-96 object-contain mx-auto" // Use object-contain to show the whole image
                 />
