@@ -80,12 +80,11 @@ const Banner = () => {
                 className="w-full flex-shrink-0"
                 style={{ backgroundColor: banner.backgroundColor || '#f0f0f0' }}
               >
-                // Line 85 mein change karein:
-<img
-  src={banner.image} // ✅ DIRECT CLOUDINARY URL - REMOVE BACKEND URL PREPEND
-  alt={banner.title}
-  className="w-full h-56 md:h-72 lg:h-96 object-contain mx-auto"
-/>
+                <img
+                  src={`https://backend-production-5823.up.railway.app/${banner.image}`}
+                  alt={banner.title}
+                  className="w-full h-56 md:h-72 lg:h-96 object-contain mx-auto" // Use object-contain to show the whole image
+                />
               </div>
             ))}
           </div>

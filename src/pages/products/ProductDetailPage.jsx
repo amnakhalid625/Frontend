@@ -19,10 +19,9 @@ const ProductDetailPage = () => {
         if (response.success) {
           const foundProduct = response.product;
 
-       // Line 20-22 mein change karein:
-const formattedImages = (foundProduct.images || []).map(
-  (imgPath) => imgPath // ✅ DIRECT CLOUDINARY URL - REMOVE BACKEND URL PREPEND
-);
+          const formattedImages = (foundProduct.images || []).map(
+            (imgPath) => `https://backend-production-5823.up.railway.app/${imgPath}`
+          );
 
           const transformedProduct = {
             id: foundProduct._id,
