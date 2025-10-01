@@ -4,6 +4,8 @@ import { Star, Heart, Share2, ShoppingCart, Plus, Minus, Truck, Shield, RotateCc
 import toast from 'react-hot-toast';
 import { addToCart as addToCartAction, toggleWishlist as toggleWishlistAction } from '../../../redux/orebiSlice';
 import { useAddToCart, useAddToWishlist } from '../../../api/internal';
+import Image from '../../designLayouts/Image';
+
 
 const ProductDetail = ({ product }) => {
   // 1. ALL HOOKS ARE CALLED AT THE TOP, UNCONDITIONALLY
@@ -79,16 +81,22 @@ const ProductDetail = ({ product }) => {
           {/* Image Gallery */}
           <div className="space-y-4">
             <div className="relative group">
-              <img src={productData.images[selectedImage]} alt={productData.name} className="w-full h-96 lg:h-[500px] object-cover rounded-lg shadow-lg cursor-zoom-in" onClick={() => setShowImageModal(true)} />
-              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"><ChevronLeft className="w-5 h-5" /></button>
+<Image 
+  imgSrc={productData.images[selectedImage]} 
+  className="w-full h-96 lg:h-[500px] object-cover rounded-lg shadow-lg cursor-zoom-in"
+  onClick={() => setShowImageModal(true)}
+/>              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"><ChevronLeft className="w-5 h-5" /></button>
               <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"><ChevronRight className="w-5 h-5" /></button>
               <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"><ZoomIn className="w-5 h-5" /></div>
             </div>
             <div className="flex space-x-2 overflow-x-auto">
               {productData.images.map((image, index) => (
-                <button key={index} onClick={() => setSelectedImage(index)} className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${selectedImage === index ? 'border-primeColor' : 'border-gray-200'}`}>
-                  <img src={image} alt={`${productData.name} ${index + 1}`} className="w-full h-full object-cover" />
-                </button>
+               <button key={index} onClick={() => setSelectedImage(index)} className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${selectedImage === index ? 'border-primeColor' : 'border-gray-200'}`}>
+  <Image 
+    imgSrc={image} 
+    className="w-full h-full object-cover"
+  />
+</button>
               ))}
             </div>
           </div>
@@ -106,7 +114,7 @@ const ProductDetail = ({ product }) => {
             <div className="flex items-center space-x-3">
               <span className="text-3xl font-bold text-gray-900">Rs. {productData.price.toLocaleString()}</span>
               {productData.originalPrice && <span className="text-xl text-gray-500 line-through">Rs. {productData.originalPrice.toLocaleString()}</span>}
-              {productData.discount && <span className="bg-red-100 text-red-600 px-2 py-1 rounded-md text-sm font-medium">{productData.discount}% OFF</span>}
+              {productData.discount && <span className="bg-red-100 text-primeColor px-2 py-1 rounded-md text-sm font-medium">{productData.discount}% OFF</span>}
             </div>
             <div>
               <h3 className="text-lg font-medium text-gray-900 mb-3">Color</h3>
@@ -168,8 +176,10 @@ const ProductDetail = ({ product }) => {
         {showImageModal && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
             <div className="relative max-w-4xl max-h-full">
-              <img src={productData.images[selectedImage]} alt={productData.name} className="max-w-full max-h-full object-contain" />
-              <button onClick={() => setShowImageModal(false)} className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors">×</button>
+<Image 
+  imgSrc={productData.images[selectedImage]} 
+  className="max-w-full max-h-full object-contain"
+/>              <button onClick={() => setShowImageModal(false)} className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors">×</button>
               <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors"><ChevronLeft className="w-6 h-6" /></button>
               <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors"><ChevronRight className="w-6 h-6" /></button>
             </div>

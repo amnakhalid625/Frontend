@@ -74,7 +74,7 @@ const Products = () => {
 
   const handleAddToCart = async (product) => {
     try {
-      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : product.image;
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080${product.images[0]}` : product.image;
       await addToCart(product._id, 1, userInfo);
       dispatch(addToCartAction({ ...product, _id: product._id, quantity: 1, image: imageUrl }));
       toast.success("Added to cart!");
@@ -85,7 +85,7 @@ const Products = () => {
 
   const handleToggleWishlist = async (product) => {
     try {
-      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : product.image;
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080${product.images[0]}` : product.image;
       await toggleWishlist(product._id, userInfo);
       dispatch(toggleWishlistAction({ ...product, _id: product._id, image: imageUrl }));
       toast.success("Wishlist updated!");
@@ -94,8 +94,7 @@ const Products = () => {
     }
   };
 
-  const gridViewCols = viewMode === 'grid' ? { xs: 12, sm: 6, md: 4, lg: 3 } : { xs: 12 };
-
+const gridViewCols = viewMode === 'grid' ? { xs: 12, sm: 6, md: 4, lg: 4 } : { xs: 12 };
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.50" }}>
       <Container maxWidth="xl" sx={{ py: 3 }}>

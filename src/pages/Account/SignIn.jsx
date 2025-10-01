@@ -37,15 +37,15 @@ const SignIn = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
             <div className="w-full max-w-md">
                 {/* Main Card */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-100/50 p-8 md:p-10">
+                <div className="backdrop-blur-sm rounded-3xl shadow-xl border  p-8 md:p-10">
                     {/* Logo Section */}
                     <Link to="/" className="flex justify-center mb-8">
                         <div className="relative">
                             <img
-                                src="https://serviceapi.spicezgold.com/download/1750047766437_logo.jpg"
+                                src="/newlogo.png"
                                 alt="Logo"
                                 className="w-32 md:w-36 transition-transform hover:scale-105 duration-300"
                             />
@@ -54,8 +54,8 @@ const SignIn = () => {
                     </Link>
 
                     {/* Header */}
-                    <div className="text-center mb-8">
-                        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <div className="text-center mb-6">
+                        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
                             Welcome Back
                         </h1>
                         <p className="text-gray-600 text-sm md:text-base">

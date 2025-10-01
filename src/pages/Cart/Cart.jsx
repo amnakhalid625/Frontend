@@ -54,7 +54,7 @@ const Cart = () => {
               <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <button
                   onClick={() => dispatch(resetCart())}
-                  className="py-2 px-6 bg-red-500 text-white font-semibold uppercase hover:bg-red-600 duration-300 rounded-md"
+                  className="py-2 px-6 bg-primeColor text-white font-semibold uppercase hover:bg-primeColor/90 transition-colors duration-300 rounded-md"
                 >
                   Reset Cart
                 </button>
@@ -127,7 +127,7 @@ const Cart = () => {
               great products and make it happy.
             </p>
             <Link to="/shop">
-              <button className="bg-primeColor rounded-md cursor-pointer hover:bg-black active:bg-gray-900 px-8 py-2 font-titleFont font-semibold text-lg text-gray-200 hover:text-white duration-300">
+              <button className="inline-block bg-primeColor text-white px-8 py-3 rounded-lg font-medium hover:bg-transparent border border-primeColor hover:text-primeColor transition-colors duration-300 shadow-md hover:shadow-lg">
                 Continue Shopping
               </button>
             </Link>

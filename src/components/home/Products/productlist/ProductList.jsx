@@ -110,7 +110,7 @@ const ProductList = ({ products, viewMode = 'grid' }) => {
       {/* Load More Button (Future Enhancement) */}
       {sortedProducts.length > 0 && sortedProducts.length >= 12 && (
         <div className="flex justify-center mt-8">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+          <button className="bg-primeColor hover:bg-primeColor/80 text-white px-6 py-3 rounded-lg font-medium transition-colors">
             Load More Products
           </button>
         </div>

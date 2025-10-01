@@ -12,7 +12,7 @@ const BannerBottom = () => {
       try {
         const response = await getCategories();
         if (response.success) {
-          setCategories(response.categories.slice(0, 5));
+          setCategories(response.categories.slice(0, 7)); // 7 categories
         }
       } catch (error) {
         toast.error("Could not load categories.");
@@ -23,12 +23,12 @@ const BannerBottom = () => {
 
   if (loading) {
     return (
-      <div className="w-full py-10 px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12">
-          {[...Array(5)].map((_, i) => (
+      <div className="w-full py-10 px-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center gap-4">
+          {[...Array(7)].map((_, i) => (
             <div
               key={i}
-              className="bg-gray-200 animate-pulse rounded-2xl w-28 h-40 sm:w-32 md:w-36 lg:w-40"
+              className="bg-gray-200 animate-pulse rounded-xl w-24 h-32 sm:w-28 md:w-32 lg:w-36"
             ></div>
           ))}
         </div>
@@ -37,23 +37,26 @@ const BannerBottom = () => {
   }
 
   return (
-    <div className="w-full py-10 px-4">
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12">
+    <div className="w-full py-10 px-6">
+      <div className="max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center gap-4">
         {categories.map((cat) => (
           <Link
             to={`/products?catId=${cat.name.toLowerCase()}`}
             key={cat._id}
-            className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-2 border border-gray-100 w-28 sm:w-32 md:w-36 lg:w-40"
+            className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-2 border border-gray-100 w-24 sm:w-28 md:w-32 lg:w-36"
           >
-            <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-3 overflow-hidden rounded-full bg-white shadow flex items-center justify-center p-2">
+            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2 overflow-hidden rounded-full bg-white shadow flex items-center justify-center p-2">
               <img
-                // FIX: Prepend backend URL to the image path
-                src={cat.image ? `http://localhost:8080/${cat.image}` : "https://via.placeholder.com/100"}
+                src={
+                  cat.image
+                    ? `http://localhost:8080${cat.image}`
+                    : "https://via.placeholder.com/100"
+                }
                 alt={cat.name}
                 className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
               />
             </div>
-            <h3 className="text-sm md:text-base font-semibold text-gray-800 tracking-wide">
+            <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 tracking-wide">
               {cat.name}
             </h3>
           </Link>

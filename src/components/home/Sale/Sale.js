@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from '../../designLayouts/Image';
+
 
 const HeroSaleSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -100,11 +102,11 @@ const HeroSaleSection = () => {
                     }`}
                   >
                     <div className="relative w-full h-full">
-                      <img
-                        src={slide.image}
-                        alt={slide.title}
-                        className="w-full h-full object-cover"
-                      />
+                    {/* // With this: */}
+<Image 
+  imgSrc={slide.image}
+  className="w-full h-full object-cover"
+/>
                       
                       {/* Content Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent">
@@ -185,11 +187,10 @@ const HeroSaleSection = () => {
                 onClick={() => handleProductClick(banner.link)}
               >
                 <div className="relative h-[150px] sm:h-[180px] lg:h-[200px]">
-                  <img
-                    src={banner.image}
-                    alt={banner.title}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
-                  />
+                  <Image 
+  imgSrc={banner.image}
+  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+/>
                   
                   {/* Content Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent">

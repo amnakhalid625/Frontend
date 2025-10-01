@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useGetBanners } from "../../api/internal";
 import toast from "react-hot-toast";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "../designLayouts/Image";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,7 +69,7 @@ const Banner = () => {
 
   return (
     <div className="pb-3 pt-3 lg:pb-4 lg:pt-4 relative z-40">
-      <div className="max-w-[84rem] mx-auto px-4">
+      <div className="max-w-[87rem] mx-auto px-4">
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <div
             className="flex transition-transform duration-700 ease-out"
@@ -80,11 +81,11 @@ const Banner = () => {
                 className="w-full flex-shrink-0"
                 style={{ backgroundColor: banner.backgroundColor || '#f0f0f0' }}
               >
-                <img
-                  src={`/${banner.image}`}
-                  alt={banner.title}
-                  className="w-full h-56 md:h-72 lg:h-96 object-contain mx-auto" // Use object-contain to show the whole image
-                />
+                <Image
+  imgSrc={banner.image}
+  className="w-full h-56 md:h-72 lg:h-[26rem] object-cover rounded-xl"
+/>
+
               </div>
             ))}
           </div>

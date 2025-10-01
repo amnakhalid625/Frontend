@@ -86,7 +86,7 @@ const Contact = () => {
                 placeholder="Enter your name here"
               />
               {errClientName && (
-                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                <p className="text-primeColor text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
                   <span className="text-sm italic font-bold">!</span>
                   {errClientName}
                 </p>
@@ -104,7 +104,7 @@ const Contact = () => {
                 placeholder="Enter your name here"
               />
               {errEmail && (
-                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                <p className="text-primeColor text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
                   <span className="text-sm italic font-bold">!</span>
                   {errEmail}
                 </p>
@@ -124,7 +124,7 @@ const Contact = () => {
                 placeholder="Enter your name here"
               ></textarea>
               {errMessages && (
-                <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
+                <p className="text-primeColor text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
                   <span className="text-sm italic font-bold">!</span>
                   {errMessages}
                 </p>

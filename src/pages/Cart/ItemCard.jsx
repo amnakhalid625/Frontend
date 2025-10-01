@@ -60,7 +60,7 @@ const ItemCard = ({ item }) => {
           Rs. {(item.quantity * item.price).toFixed(2)}
         </p>
         <button onClick={() => dispatch(deleteItem(item._id))}>
-          <X className="text-gray-500 hover:text-red-500 duration-300 cursor-pointer w-5 h-5" />
+          <X className="text-gray-500 hover:text-primeColor/90 duration-300 cursor-pointer w-5 h-5" />
         </button>
       </div>
     </div>

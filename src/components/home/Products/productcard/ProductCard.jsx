@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Star, ShoppingCart, Favorite, CompareArrows, ZoomOutMap } from "@mui/icons-material";
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import Image from '../../../designLayouts/Image';
+
 
 const ProductCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted }) => {
 
@@ -12,25 +14,24 @@ const ProductCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted }) =
   // THIS IS THE FIX: Construct the full image URL by prepending the backend address.
   // This also handles both `images` array and single `image` string for flexibility.
   const imageUrl = (product.images && product.images.length > 0)
-    ? `http://localhost:8080/${product.images[0]}`
-    : (product.image ? `http://localhost:8080/${product.image}` : "https://via.placeholder.com/400?text=No+Image");
+    ? `http://localhost:8080${product.images[0]}`
+    : (product.image ? `http://localhost:8080${product.image}` : "https://via.placeholder.com/400?text=No+Image");
 
   return (
     <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group h-full flex flex-col">
       {/* Product Image */}
       <div className="relative overflow-hidden bg-gray-50">
-        <Link to={`/product/${product._id}`}>
-          <img
-            src={imageUrl}
-            alt={product.name}
-            className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </Link>
+       <Link to={`/product/${product._id}`}>
+  <Image 
+    imgSrc={imageUrl}
+    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+  />
+</Link>
 
         {/* Wishlist Button & Other Actions */}
         <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <button onClick={() => onToggleWishlist(product)} className="w-9 h-9 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center hover:scale-110">
-            <Favorite className={`w-5 h-5 transition-colors ${isWishlisted ? "text-red-500" : "text-gray-600 hover:text-primeColor"}`} />
+            <Favorite className={`w-5 h-5 transition-colors ${isWishlisted ? "text-primeColor" : "text-gray-600 hover:text-primeColor"}`} />
           </button>
           <button className="w-9 h-9 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center hover:scale-110">
             <CompareArrows className="w-5 h-5 text-gray-600 hover:text-primeColor" />

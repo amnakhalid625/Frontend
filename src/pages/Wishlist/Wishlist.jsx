@@ -77,7 +77,7 @@ const Wishlist = () => {
                     <h2 className="text-2xl font-bold mb-2">Your Wishlist is Empty</h2>
                     <p className="text-gray-600 mb-6">Looks like you haven't added anything to your wishlist yet.</p>
                     <Link to="/shop">
-                        <button className="bg-primeColor text-white px-6 py-3 rounded-lg font-medium hover:bg-black transition-colors">
+                        <button className="inline-block bg-primeColor text-white px-8 py-3 rounded-lg font-medium hover:bg-transparent border border-primeColor hover:text-primeColor transition-colors duration-300 shadow-md hover:shadow-lg">
                             Continue Shopping
                         </button>
                     </Link>

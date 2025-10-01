@@ -54,7 +54,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
   const handleAddToCart = async (product) => {
     try {
       // The image path in Redux needs the full URL to be displayed in the cart/header
-      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : "https://via.placeholder.com/100";
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080${product.images[0]}` : "https://via.placeholder.com/100";
       await addToCart(product._id, 1, userInfo);
       dispatch(
         addToCartAction({
@@ -73,7 +73,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
 
   const handleToggleWishlist = async (product) => {
     try {
-      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080/${product.images[0]}` : "https://via.placeholder.com/100";
+      const imageUrl = (product.images && product.images.length > 0) ? `http://localhost:8080${product.images[0]}` : "https://via.placeholder.com/100";
       await toggleWishlist(product._id, userInfo);
       dispatch(
         toggleWishlistAction({
@@ -219,7 +219,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
             {infiniteProducts.map((product, index) => {
               const isWishlisted = wishlist.some((p) => p._id === product._id);
               const imageUrl = (product.images && product.images.length > 0)
-                ? `http://localhost:8080/${product.images[0]}`
+                ? `http://localhost:8080${product.images[0]}`
                 : "https://via.placeholder.com/400?text=No+Image";
 
               return (
@@ -237,7 +237,7 @@ const ProductSection = ({ title, subtitle, products, loading, className }) => {
                           className="bg-white/90 backdrop-blur-sm p-2 md:p-2.5 rounded-full shadow-sm hover:shadow-md border border-gray-100/50 hover:bg-white transition-all duration-200 hover:scale-105"
                           onClick={(e) => { e.stopPropagation(); handleToggleWishlist(product); }}
                         >
-                          <Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isWishlisted ? "text-red-500 fill-current" : "text-gray-600"}`} />
+                          <Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isWishlisted ? "text-primeColor fill-current" : "text-gray-600"}`} />
                         </button>
                         <button className="bg-white/90 backdrop-blur-sm p-2 md:p-2.5 rounded-full shadow-sm hover:shadow-md border border-gray-100/50 hover:bg-white transition-all duration-200 hover:scale-105" onClick={(e) => e.stopPropagation()}>
                           <Shuffle className="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-600" />

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { productOfTheYear } from "../../../assets/images";
 import Image from "../../designLayouts/Image";
+import img from '../../../assets/images/productOfTheYear.avif'
+
 
 const YearProduct = () => {
   return (
@@ -9,9 +11,8 @@ const YearProduct = () => {
       <div className="w-full h-80 mb-20 bg-[#f9f9f9] md:bg-transparent relative font-titleFont rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
         
         {/* Background Image */}
-        <Image
+        <img src={img}
           className="w-full h-full object-cover hidden md:inline-block"
-          imgSrc={productOfTheYear}
         />
 
         {/* Text Content */}

@@ -7,8 +7,11 @@ import NewArrivals from "../../components/home/NewArrivals/NewArrivals";
 import Sale from "../../components/home/Sale/Sale";
 import YearProduct from "../../components/home/YearProduct/YearProduct";
 import BannerCarousel from "../../components/Banner/BannerCarousal";
-import JewellerySection from "../../components/home/JewellerySection/JewellerySection";
+import Shades from "../../components/home/Shades/Shades";
+import Watches from "../../components/home/Watches/Watches";
+import Accessories from "../../components/home/Accessories/Accessories";
 import FootwearSection from "../../components/home/FootwearSection/FootwearSection";
+import Homewear from "../../components/home/homewear/Homewear";
 import ServicesSection from "../../components/serviceSection/ServicesSection";
 
 
@@ -34,13 +37,13 @@ const Home = () => {
 
         <Sale />
        
-
+        <Watches />
+        <Shades />
         <BestSellers />
         <BannerCarousel />
-
-        <JewellerySection />
+        <Accessories />
         <FootwearSection />
-
+        <Homewear />
         <YearProduct />
         <ServicesSection />
       </div>
